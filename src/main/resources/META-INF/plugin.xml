@@ -10,6 +10,9 @@
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
 
+    <!-- Declare the default resource location for localizing menu strings -->
+    <resource-bundle>messages.AndroidActionsBundle</resource-bundle>
+
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
@@ -27,4 +30,14 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+
+    <actions>
+        <group id="com.example.androidparserplugin.action.AndroidActionGroup"
+               class="com.example.androidparserplugin.action.AndroidActionGroup"
+               popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action id="com.example.androidparserplugin.action.CustomGroupedAction"
+                    class="com.example.androidparserplugin.action.PopupDialogAction"/>
+        </group>
+    </actions>
 </idea-plugin>
