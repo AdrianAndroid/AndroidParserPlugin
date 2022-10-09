@@ -1,5 +1,6 @@
 package com.example.androidparserplugin.action;
 
+import com.example.androidparserplugin.android.AndroidParser;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -21,15 +22,17 @@ public class PopupDialogAction extends AnAction {
     }
 
     @Override
-    public void actionPerformed(@NotNull AnActionEvent e) {
-        Project currentProject = e.getProject();
-        StringBuilder dlgMsg = new StringBuilder(e.getPresentation().getText() + " Selected!");
-        String dlgTitle = e.getPresentation().getDescription();
-        Navigatable nav = e.getData(CommonDataKeys.NAVIGATABLE);
-        if (nav != null) {
-            dlgMsg.append(String.format("\nSelected Element: %s", nav));
-        }
-        Messages.showMessageDialog(currentProject, dlgMsg.toString(), dlgTitle, Messages.getInformationIcon());
+    public void actionPerformed(@NotNull AnActionEvent event) {
+        AndroidParser androidParser = new AndroidParser(event);
+        androidParser.run();
+//        Project currentProject = event.getProject();
+//        StringBuilder dlgMsg = new StringBuilder(event.getPresentation().getText() + " Selected!");
+//        String dlgTitle = event.getPresentation().getDescription();
+//        Navigatable nav = event.getData(CommonDataKeys.NAVIGATABLE);
+//        if (nav != null) {
+//            dlgMsg.append(String.format("\nSelected Element: %s", nav));
+//        }
+//        Messages.showMessageDialog(currentProject, dlgMsg.toString(), dlgTitle, Messages.getInformationIcon());
     }
 
     @Override

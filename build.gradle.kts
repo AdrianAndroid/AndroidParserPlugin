@@ -15,7 +15,13 @@ intellij {
     version.set("2021.2.1")
     type.set("IC") // Target IDE Platform
 
-    plugins.set(listOf(/* Plugin Dependencies */))
+    plugins.set(listOf("org.jetbrains.idea.gradle.dsl", "org.jetbrains.android"))
+}
+
+dependencies {
+//    implementation("/Users/zhaojian/Desktop/AndroidParserPlugin/IDE/android-gradle-dsl/lib/android-gradle-dsl.jar")
+//    implementation("android-gradle-dsl.jar")
+//    implementation fileTree(include: '*.jar', dir: 'libs')
 }
 
 tasks {

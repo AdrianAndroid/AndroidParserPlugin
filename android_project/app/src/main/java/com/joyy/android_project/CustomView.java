@@ -2,7 +2,6 @@ package com.joyy.android_project;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -21,8 +20,4 @@ public class CustomView extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-
-    }
 }
