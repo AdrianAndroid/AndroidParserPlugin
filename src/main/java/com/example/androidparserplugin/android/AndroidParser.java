@@ -2,7 +2,9 @@ package com.example.androidparserplugin.android;
 
 import com.android.tools.idea.gradle.dsl.GradleUtil;
 import com.android.tools.idea.gradle.project.build.GradleProjectBuilder;
+import com.android.tools.idea.gradle.project.build.invoker.GradleBuildInvoker;
 import com.android.tools.idea.gradle.util.AndroidGradleSettings;
+import com.android.tools.idea.project.AndroidProjectInfo;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.project.Project;
@@ -54,8 +56,14 @@ public class AndroidParser {
      * 可以正常compileJava
      */
     public void test3() {
+        AndroidProjectInfo androidProjectInfo = AndroidProjectInfo.getInstance(project);
+        GradleBuildInvoker gradleBuildInvoker = GradleBuildInvoker.getInstance(project);
+        GradleProjectBuilder.getInstance(project).clean();
         GradleProjectBuilder.getInstance(project).compileJava();
 //        GradleProjectBuilder.getInstance(project).clean();
+    }
+    public void test4() {
+
     }
 
     public void run() {
@@ -63,4 +71,5 @@ public class AndroidParser {
         // test2();
         // test1(); // 测试GradleUtil
     }
+
 }
